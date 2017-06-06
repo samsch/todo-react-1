@@ -1,0 +1,31 @@
+{
+  "name": "basic-webpack",
+  "version": "1.0.0",
+  "description": "Basic Webpack usage",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "webpack-dev-server -d --open",
+    "dev": "webpack -d --watch",
+    "build": "webpack -p"
+  },
+  "keywords": [
+    "webpack",
+    "javascript",
+    "modules"
+  ],
+  "author": "Samuel Scheiderich",
+  "license": "0BSD",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "flow-bin": "^0.47.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {}
+}

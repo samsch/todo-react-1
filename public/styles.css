@@ -1,0 +1,42 @@
+html {
+  font-size: 100%;
+}
+
+.new-todo-form {
+  padding: 1rem;
+  border: solid 1px gray;
+  vertical-align: middle;
+}
+
+.new-todo-form input {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-right: .5rem;
+}
+
+.new-todo-form button {
+  height: 1.5rem;
+}
+
+.todo-list {
+  margin: 0;
+  padding: 1rem;
+}
+
+.todo-item {
+  border-bottom: solid 1px gray;
+}
+
+.todo-divider {
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.todo-completed-item {
+  border-bottom: solid 1px gray;
+  color: gray;
+}
+
+.empty {
+  font-style: italic;
+}
