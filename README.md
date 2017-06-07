@@ -1,5 +1,5 @@
 # Todo app - React
-This is a two-hour Todo app.
+This is a small Todo app.
 
 Built using React and a dev environment boilerplate.
 
