@@ -2,6 +2,11 @@ html {
   font-size: 100%;
 }
 
+.todo-app {
+  margin: auto;
+  max-width: 50rem;
+}
+
 .new-todo-form {
   padding: 1rem;
   border: solid 1px gray;
@@ -21,9 +26,11 @@ html {
 .todo-list {
   margin: 0;
   padding: 1rem;
+  list-style: none;
 }
 
 .todo-item {
+  line-height: 1.5rem;
   border-bottom: solid 1px gray;
 }
 
@@ -33,6 +40,7 @@ html {
 }
 
 .todo-completed-item {
+  line-height: 1.5rem;
   border-bottom: solid 1px gray;
   color: gray;
 }
