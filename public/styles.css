@@ -1,3 +1,7 @@
+/*
+Credit for input styles to http://callmenick.com/post/various-css-input-text-styles
+*/
+
 html {
   font-size: 100%;
 }
@@ -14,9 +18,15 @@ html {
 }
 
 .new-todo-form input {
-  height: 1.5rem;
-  line-height: 1.5rem;
   margin-right: .5rem;
+  padding: .625rem;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+.new-todo-form input:focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
 }
 
 .new-todo-form button {
@@ -34,17 +44,33 @@ html {
   border-bottom: solid 1px gray;
 }
 
+.todo-item > button {
+  margin-right: .5rem;
+}
+
 .todo-divider {
   margin: 0;
   padding: 0 1rem;
 }
 
 .todo-completed-item {
-  line-height: 1.5rem;
-  border-bottom: solid 1px gray;
   color: gray;
 }
 
 .empty {
   font-style: italic;
+}
+
+.editable-item {
+  border: solid 1px rgba(1,1,1,0);
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+  transition: all 0.3s, border 0.3s;
+}
+
+.editable-item:focus {
+  padding: .625rem;
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
 }

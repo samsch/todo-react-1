@@ -1,15 +1,19 @@
 // @flow
 import React from 'react';
+import EditableItem from './EditableItem';
+
+import type { Item } from './main.js';
 
 type Props = {
   state: {
-    todoList: Array<string>,
-    completedList: Array<string>,
+    todoList: Array<Item>,
+    completedList: Array<Item>,
   },
   actions: {
     addTodo: Function,
     completeTodo: Function,
     unfinishTodo: Function,
+    modifyTodo: Function,
   }
 }
 
@@ -30,6 +34,9 @@ class TodoApp extends React.Component {
   }
   addItem(e: Event) {
     e.preventDefault();
+    if(!this.state.newItemText) {
+      return false;
+    }
     this.props.actions.addTodo(this.state.newItemText);
     this.setState({
       newItemText: '',
@@ -45,14 +52,20 @@ class TodoApp extends React.Component {
         </form>
         <ul className="todo-list">
           {this.props.state.todoList.map((item, index) => (
-            <li key={item} className="todo-item"><button onClick={() => this.props.actions.completeTodo(index)} >Done</button> {item}</li>
+            <li key={item.id} className="todo-item">
+              <button onClick={() => this.props.actions.completeTodo(index)} >Done</button>
+              <EditableItem value={item.description} onChange={newValue => this.props.actions.modifyTodo(index, newValue, false)} />
+            </li>
           ))}
           {this.props.state.todoList.length === 0 ? <li className="empty">Nothing left to do. Add some above!</li> : null}
         </ul>
         <h3>Completed</h3>
         <ul className="todo-list">
           {this.props.state.completedList.map((item, index) => (
-            <li key={item} className="todo-completed-item"><button onClick={() => this.props.actions.unfinishTodo(index)} >Undo</button> {item}</li>
+            <li key={item.id} className="todo-item todo-completed-item">
+              <button onClick={() => this.props.actions.unfinishTodo(index)} >Undo</button>
+              <EditableItem value={item.description} onChange={newValue => this.props.actions.modifyTodo(index, newValue, true)} />
+            </li>
           ))}
           {this.props.state.completedList.length === 0 ? <li className="empty">Nothing finished yet.</li> : null}
         </ul>

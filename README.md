@@ -7,7 +7,12 @@ Included features:
 - Add new todo item
 - Finish item
 - Unfinish item
+- Edit item
 
 Obivously missing features
-- Edit item
+- Delete item
 - Persist list
+
+### Credits
+
+I used input styles from [Various CSS Input Text Styles](http://callmenick.com/post/various-css-input-text-styles).

@@ -4,13 +4,22 @@ import ReactDOM from 'react-dom';
 import R from 'ramda';
 import TodoApp from './TodoApp';
 
+export type Item = {
+  description: string,
+  id: string,
+}
+
 const appRoot = document.getElementById('app-body');
+
+const createItem = (description: string, id: string) => ({ description, id });
+const updateItem = (description: string, item: Item) => ({ id: item.id, description });
 
 const TodoAppModel = (() => {
   let listener = () => {};
   let state = {
     todoList: [],
     completedList: [],
+    nextItemId: 0,
   };
   const updateState = (newState) => {
     state = Object.assign({}, state, newState);
@@ -23,7 +32,8 @@ const TodoAppModel = (() => {
     getState: () => state,
     addTodo: (item: string) => {
       updateState({
-        todoList: state.todoList.concat(item),
+        todoList: state.todoList.concat(createItem(item, String(state.nextItemId))),
+        nextItemId: state.nextItemId + 1,
       });
     },
     completeTodo: (index: number) => {
@@ -36,6 +46,12 @@ const TodoAppModel = (() => {
       updateState({
         completedList: R.remove(index, 1, state.completedList),
         todoList: state.todoList.concat(state.completedList[index]),
+      });
+    },
+    modifyTodo: (index: number, newText: string, completed: boolean = false) => {
+      const list = completed ? 'completedList' : 'todoList';
+      updateState({
+        [list]: R.update(index, updateItem(newText, state[list][index]), state[list]),
       });
     },
   };
