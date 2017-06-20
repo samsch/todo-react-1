@@ -8,9 +8,9 @@ Included features:
 - Finish item
 - Unfinish item
 - Edit item
+- Delete item
 
 Obivously missing features
-- Delete item
 - Persist list
 
 ### Credits

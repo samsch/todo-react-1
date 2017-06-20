@@ -11,8 +11,8 @@ export type Item = {
 
 const appRoot = document.getElementById('app-body');
 
-const createItem = (description: string, id: string) => ({ description, id });
-const updateItem = (description: string, item: Item) => ({ id: item.id, description });
+const createItem = (description: string, id: string): Item => ({ description, id });
+const updateItem = (description: string, item: Item): Item => ({ id: item.id, description });
 
 const TodoAppModel = (() => {
   let listener = () => {};
@@ -26,10 +26,16 @@ const TodoAppModel = (() => {
     listener();
   };
   return {
+    // Allows a single subscriber to get called when the state is updated.
+    // Ideally, this method (and the listener handling above) would allow
+    // multiple listeners. If this was intended to scale, then the listener
+    // would also accept a pointer to a specific part of the state to
+    // observe, such that the subcription only fires if that part is updated.
     setListener: (callback: Function) => {
       listener = callback;
     },
     getState: () => state,
+
     addTodo: (item: string) => {
       updateState({
         todoList: state.todoList.concat(createItem(item, String(state.nextItemId))),
@@ -52,6 +58,12 @@ const TodoAppModel = (() => {
       const list = completed ? 'completedList' : 'todoList';
       updateState({
         [list]: R.update(index, updateItem(newText, state[list][index]), state[list]),
+      });
+    },
+    deleteTodo: (index: number, completed: boolean = true) => {
+      const list = completed ? 'completedList' : 'todoList';
+      updateState({
+        [list]: R.remove(index, 1, state[list]),
       });
     },
   };

@@ -14,6 +14,7 @@ type Props = {
     completeTodo: Function,
     unfinishTodo: Function,
     modifyTodo: Function,
+    deleteTodo: Function,
   }
 }
 
@@ -53,7 +54,8 @@ class TodoApp extends React.Component {
         <ul className="todo-list">
           {this.props.state.todoList.map((item, index) => (
             <li key={item.id} className="todo-item">
-              <button onClick={() => this.props.actions.completeTodo(index)} >Done</button>
+              <button type="button" onClick={() => this.props.actions.deleteTodo(index, false)} title="Delete item">X</button>
+              <button type="button" onClick={() => this.props.actions.completeTodo(index)} >Done</button>
               <EditableItem value={item.description} onChange={newValue => this.props.actions.modifyTodo(index, newValue, false)} />
             </li>
           ))}
@@ -63,7 +65,8 @@ class TodoApp extends React.Component {
         <ul className="todo-list">
           {this.props.state.completedList.map((item, index) => (
             <li key={item.id} className="todo-item todo-completed-item">
-              <button onClick={() => this.props.actions.unfinishTodo(index)} >Undo</button>
+              <button type="button" onClick={() => this.props.actions.deleteTodo(index)} title="Delete item">X</button>
+              <button type="button" onClick={() => this.props.actions.unfinishTodo(index)} >Undo</button>
               <EditableItem value={item.description} onChange={newValue => this.props.actions.modifyTodo(index, newValue, true)} />
             </li>
           ))}
