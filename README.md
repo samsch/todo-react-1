@@ -9,9 +9,10 @@ Included features:
 - Unfinish item
 - Edit item
 - Delete item
+- Client-side Persistance
 
 Obivously missing features
-- Persist list
+- Decent styling
 
 ## Run
 

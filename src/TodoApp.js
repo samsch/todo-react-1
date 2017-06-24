@@ -15,7 +15,8 @@ type Props = {
     unfinishTodo: Function,
     modifyTodo: Function,
     deleteTodo: Function,
-  }
+  },
+  clearData: Function,
 }
 
 type State = {
@@ -72,6 +73,9 @@ class TodoApp extends React.Component {
           ))}
           {this.props.state.completedList.length === 0 ? <li className="empty">Nothing finished yet.</li> : null}
         </ul>
+        <footer>
+          <button type="button" onClick={this.props.clearData} >Clear persistant data and refresh</button>
+        </footer>
       </div>
     );
   }
