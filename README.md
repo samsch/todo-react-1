@@ -11,9 +11,6 @@ Included features:
 - Delete item
 - Client-side Persistance
 
-Obivously missing features
-- Decent styling
-
 ## Run
 
 1. Clone the repo `git clone https://github.com/samsch/todo-react-1.git`

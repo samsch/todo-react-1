@@ -55,8 +55,8 @@ class TodoApp extends React.Component {
         <ul className="todo-list">
           {this.props.state.todoList.map((item, index) => (
             <li key={item.id} className="todo-item">
-              <button type="button" onClick={() => this.props.actions.deleteTodo(index, false)} title="Delete item">X</button>
-              <button type="button" onClick={() => this.props.actions.completeTodo(index)} >Done</button>
+              <button className="item-delete-button" type="button" onClick={() => this.props.actions.deleteTodo(index, false)} title="Delete item">X</button>
+              <button className="item-complete-button" type="button" onClick={() => this.props.actions.completeTodo(index)} >Done</button>
               <EditableItem value={item.description} onChange={newValue => this.props.actions.modifyTodo(index, newValue, false)} />
             </li>
           ))}
@@ -66,15 +66,15 @@ class TodoApp extends React.Component {
         <ul className="todo-list">
           {this.props.state.completedList.map((item, index) => (
             <li key={item.id} className="todo-item todo-completed-item">
-              <button type="button" onClick={() => this.props.actions.deleteTodo(index)} title="Delete item">X</button>
-              <button type="button" onClick={() => this.props.actions.unfinishTodo(index)} >Undo</button>
+              <button className="item-delete-button" type="button" onClick={() => this.props.actions.deleteTodo(index)} title="Delete item">X</button>
+              <button className="item-complete-button" type="button" onClick={() => this.props.actions.unfinishTodo(index)} >Undo</button>
               <EditableItem value={item.description} onChange={newValue => this.props.actions.modifyTodo(index, newValue, true)} />
             </li>
           ))}
           {this.props.state.completedList.length === 0 ? <li className="empty">Nothing finished yet.</li> : null}
         </ul>
         <footer>
-          <button type="button" onClick={this.props.clearData} >Clear persistant data and refresh</button>
+          <button className="clear-persistence-button" type="button" onClick={this.props.clearData} >Clear persistant data and refresh</button>
         </footer>
       </div>
     );
