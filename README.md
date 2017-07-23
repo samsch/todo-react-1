@@ -1,6 +1,8 @@
 # Todo app - React
 This is a small Todo app.
 
+[Live demo on Github pages](https://samsch.github.io/todo-react-1/)
+
 Built using React and a dev environment boilerplate.
 
 Included features:
