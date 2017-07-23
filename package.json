@@ -1,12 +1,13 @@
 {
-  "name": "basic-webpack",
+  "name": "todo-react-1",
   "version": "0.5.0",
   "description": "Basic Webpack usage",
   "main": "src/main.js",
   "scripts": {
     "start": "webpack-dev-server -d --open",
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "deploy": "gh-pages -d public"
   },
   "keywords": [
     "webpack",
@@ -16,19 +17,20 @@
   "author": "Samuel Scheiderich",
   "license": "0BSD",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^6.4.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-react": "^7.0.1",
-    "flow-bin": "^0.47.0",
+    "eslint": "^4.3.0",
+    "eslint-plugin-react": "^7.1.0",
+    "flow-bin": "^0.51.0",
+    "gh-pages": "^1.0.0",
     "ramda": "^0.24.1",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3"
